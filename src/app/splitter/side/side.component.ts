@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import * as ons from 'onsenui';
+
 import { AppService } from '../../core/services/app.service';
 
 @Component({
@@ -7,6 +9,8 @@ import { AppService } from '../../core/services/app.service';
   styleUrls: ['./side.component.scss']
 })
 export class SideComponent implements OnInit {
+
+  md = ons.platform.isAndroid();
 
   links = [
     {
