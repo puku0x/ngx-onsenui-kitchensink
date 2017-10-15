@@ -1,0 +1,108 @@
+<ons-list>
+  <ons-list-header>Text input</ons-list-header>
+  <ons-list-item>
+    <div class="left">
+      <ons-icon icon="md-face" class="list-item__icon"></ons-icon>
+    </div>
+    <label class="center">
+      <ons-input float maxlength="20" placeholder="Name" [(value)]="name"></ons-input>
+    </label>
+  </ons-list-item>
+  <ons-list-item>
+    <div class="left">
+      <ons-icon icon="fa-question-circle-o" class="list-item__icon"></ons-icon>
+    </div>
+    <label class="center">
+      <ons-search-input maxlength="20" placeholder="Search" [(value)]="name"></ons-search-input>
+    </label>
+  </ons-list-item>
+  <ons-list-item>
+    <div class="right right-label">
+      Hello {{ name || 'anonymous' }}!<ons-icon icon="fa-hand-spock-o" size="lg" class="right-icon"></ons-icon>
+    </div>
+  </ons-list-item>
+
+  <ons-list-header>Range slider</ons-list-header>
+  <ons-list-item>
+    Adjust the volume:
+    <ons-row>
+      <ons-col width="40px" style="text-align: center; line-height: 31px;">
+        <ons-icon icon="md-volume-down"></ons-icon>
+      </ons-col>
+      <ons-col>
+        <ons-range [(value)]="volume" style="width: 100%;"></ons-range>
+      </ons-col>
+      <ons-col width="40px" style="text-align: center; line-height: 31px;">
+        <ons-icon icon="md-volume-up"></ons-icon>
+      </ons-col>
+    </ons-row>
+    Volume: {{ volume }} <span *ngIf="volume > 80">&nbsp;(careful, that's loud)</span>
+  </ons-list-item>
+
+  <ons-list-header>Switches</ons-list-header>
+  <ons-list-item>
+    <label class="center" for="switch1">
+      Switch ({{ switchOn ? 'on' : 'off' }})
+    </label>
+    <div class="right">
+      <ons-switch input-id="switch1" [(value)]="switchOn"></ons-switch>
+    </div>
+  </ons-list-item>
+  <ons-list-item>
+    <label class="center" for="switch2">
+      {{ switchOn ? 'Enabled switch' : 'Disabled switch' }}
+    </label>
+    <div class="right">
+      <ons-switch input-id="switch2" [disabled]="!switchOn"></ons-switch>
+    </div>
+  </ons-list-item>
+
+  <ons-list-header>Select</ons-list-header>
+  <ons-list-item>
+    <div class="center">
+      <ons-select style="width: 120px" [(ngModel)]="selectedItem">
+        <option *ngFor="let item of items" [value]="item.value">
+          {{ item.text }}
+        </option>
+      </ons-select>
+    </div>
+    <div class="right right-label">
+      <s *ngIf="selectedItem !== 'Angular'">{{ selectedItem }}</s> Angular is awesome!
+    </div>
+  </ons-list-item>
+
+  <ons-list-header>Radio buttons</ons-list-header>
+  <ons-list-item *ngFor="let vegetable of vegetables; let $index = index" tappable [modifier]="($index === vegetables.length - 1) ? 'longdivider' : ''">
+    <label class="left">
+      <ons-radio
+        [attr.input-id]="'radio-' + $index"
+        [attr.value]="vegetable"
+        [(ngModel)]="selectedVegetable"
+      >
+      </ons-radio>
+    </label>
+    <label [attr.for]="'radio-' + $index" class="center">
+      {{ vegetable }}
+    </label>
+  </ons-list-item>
+  <ons-list-item>
+    <div class="center">
+      I love {{ selectedVegetable }}!
+    </div>
+  </ons-list-item>
+
+  <ons-list-header>Checkboxes - {{checkedColors}}</ons-list-header>
+  <ons-list-item *ngFor="let color of colors; let $index = index" tappable>
+    <label class="left">
+      <ons-checkbox
+        [attr.input-id]="'checkbox-' + $index"
+        [attr.value]="color"
+        [(ngModel)]="checkedColors"
+      >
+      </ons-checkbox>
+    </label>
+    <label class="center" [attr.for]="'checkbox-' + $index">
+      {{ color }}
+    </label>
+  </ons-list-item>
+</ons-list>

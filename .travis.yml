@@ -1,0 +1,26 @@
+sudo: false
+
+language: node_js
+
+node_js:
+  - stable
+
+dist: trusty
+
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - npm install -g @angular/cli
+
+before_deploy:
+  - npm run build:prod
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist
+  on:
+    branch: master

@@ -1,0 +1,33 @@
+<div class="profile-pic">
+  <img src="../../../assets/ngx-onsenui.png">
+</div>
+
+<ons-list-title>Access</ons-list-title>
+<ons-list>
+  <ons-list-item *ngFor="let item of access; let i = index" [attr.modifier]="md && 'nodivider'" (click)="loadView(i)">
+    <div class="left">
+      <ons-icon fixed-width class="list-item__icon" [attr.icon]="item.icon"></ons-icon>
+    </div>
+    <div class="center">
+      {{ item.title }}
+    </div>
+    <div class="right">
+      <ons-icon icon="fa-link"></ons-icon>
+    </div>
+  </ons-list-item>
+</ons-list>
+
+<ons-list-title>Links</ons-list-title>
+<ons-list>
+  <ons-list-item *ngFor="let item of links" [attr.modifier]="md && 'nodivider'" (click)="loadLink(item.url)">
+    <div class="left">
+      <ons-icon fixed-width class="list-item__icon" [attr.icon]="item.icon"></ons-icon>
+    </div>
+    <div class="center">
+      {{ item.title }}
+    </div>
+    <div class="right">
+      <ons-icon icon="fa-external-link"></ons-icon>
+    </div>
+  </ons-list-item>
+</ons-list>

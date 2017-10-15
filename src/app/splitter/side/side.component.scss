@@ -1,0 +1,17 @@
+.profile-pic {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #DDD;
+  color: rgba(0, 0, 0, .56);
+  padding-bottom: 8px;
+}
+.page--material .profile-pic {
+  background-color: #f6f6f6;
+}
+.profile-pic > img {
+  display: block;
+  max-width: 100%;
+}
+.page--material__background.page--white__background {
+  background-color: #fff;
+}

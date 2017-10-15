@@ -1,0 +1,6 @@
+<ons-list>
+  <ons-list-header>Transitions</ons-list-header>
+  <ons-list-item *ngFor="let animation of animations" modifier="chevron" (click)="transition(animation)">
+    {{ animation }}
+  </ons-list-item>
+</ons-list>
