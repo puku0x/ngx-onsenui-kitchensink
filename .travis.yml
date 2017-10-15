@@ -23,10 +23,9 @@ before_install:
 
 script:
   - ng test --single-run
-  - ng build --prod --aot --build-optimizer --base-href="https://puku0x.github.io/ngx-onsenui-kitchensink/"
 
 before_deploy:
-  - npm run build:prod
+  - ng build --prod --aot --build-optimizer --base-href="https://puku0x.github.io/ngx-onsenui-kitchensink/"
 
 deploy:
   provider: pages
