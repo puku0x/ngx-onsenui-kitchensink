@@ -11,8 +11,19 @@ cache:
   directories:
     - node_modules
 
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
 before_install:
   - npm install -g @angular/cli
+
+script:
+  - ng test --single-run
+  - ng build --prod --aot --build-optimizer --base-href="https://puku0x.github.io/ngx-onsenui-kitchensink/"
 
 before_deploy:
   - npm run build:prod
