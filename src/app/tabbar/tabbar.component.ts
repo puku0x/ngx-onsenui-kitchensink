@@ -23,7 +23,6 @@ const purple = [103, 58, 183];
 })
 export class TabbarComponent implements OnInit, OnDestroy {
   subscrption: Subscription;
-  title: string;
   swipeTheme: string;
   md = ons.platform.isAndroid();
   shutUp = !this.md;
@@ -62,6 +61,7 @@ export class TabbarComponent implements OnInit, OnDestroy {
       top: null
     }
   ];
+  title = this.md ? 'Onsen UI' : this.tabs[1].label;
 
   @ViewChild('tabbar') tabbar;
 
@@ -82,6 +82,17 @@ export class TabbarComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * Callback for prechange
+   * @param event
+   */
+  onPrechange(event) {
+    this.zone.run(() => {
+      const index = event.activeIndex;
+      this.title = this.md ? 'Onsen UI' : this.tabs[index].label;
+    });
+  }
+
+  /**
    * Swipe
    * @param index
    * @param options
@@ -93,7 +104,6 @@ export class TabbarComponent implements OnInit, OnDestroy {
       this.swipeTheme = this.md ? `rgb(${this.colors.join(',')})` : '';
       this.topPosition = lerp(this.tabs[a].top || 0, this.tabs[b].top || 0, ratio);
       this.element.nativeElement.style = this.md ? `top: ${this.topPosition}px` : '';
-      this.title = this.md ? 'Onsen UI' : this.tabs[a].label;
     });
   }
 
@@ -104,9 +114,11 @@ export class TabbarComponent implements OnInit, OnDestroy {
     this.subscrption = this.appService.tabIndex$.subscribe(index => {
       this.tabbar.nativeElement.setActiveTab(index);
     });
-    this.tabbar.nativeElement.onSwipe = function(index, options) {
-      this.onSwipe(index, options);
-    }.bind(this);
+    if (this.md) {
+      this.tabbar.nativeElement.onSwipe = function(index, options) {
+        this.onSwipe(index, options);
+      }.bind(this);
+    }
   }
 
   /**
