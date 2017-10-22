@@ -1,0 +1,25 @@
+<ons-toolbar>
+  <div class="left">
+    <ons-back-button></ons-back-button>
+  </div>
+  <div class="center">Pull Hook</div>
+</ons-toolbar>
+
+<ons-pull-hook (action)="onAction($event)" (changestate)="onChangestate($event)" [attr.height]="md ? 84 : 64" [attr.fixed-content]="md ? true : null" #pullhook>
+  <ons-icon *ngIf="!md; else elseBlock" size="22px" class="pull-hook-spinner" [attr.icon]="state === 'action' ? 'fa-spinner' : 'fa-arrow-down'" [attr.spin]="state === 'action' ? true : null" [attr.rotate]="state === 'preaction' && 180"></ons-icon>
+  <ng-template #elseBlock>
+    <div class="pull-hook-progress">
+      <ons-progress-circular [value]="ratio * 100" [indeterminate]="state === 'action'"></ons-progress-circular>
+    </div>
+  </ng-template>
+</ons-pull-hook>
+
+<ons-list>
+  <ons-list-header>Pull to refresh</ons-list-header>
+  <ons-list-item *ngFor="let kitten of kittens">
+    <div class="left">
+      <img class="list-item__thumbnail" [src]="kitten.url">
+    </div>
+    <div class="center">{{ kitten.name }}</div>
+  </ons-list-item>
+</ons-list>

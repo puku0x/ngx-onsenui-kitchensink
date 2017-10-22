@@ -14,6 +14,7 @@ import { FormsComponent } from './pages/forms/forms.component';
 import { AnimationsComponent } from './pages/animations/animations.component';
 import { CameraComponent } from './pages/camera/camera.component';
 import { TransitionComponent } from './pages/transition/transition.component';
+import { PullhookComponent } from './pages/pullhook/pullhook.component';
 
 const pages = [
   SplitterComponent,
@@ -24,6 +25,7 @@ const pages = [
   FormsComponent,
   AnimationsComponent,
   TransitionComponent,
+  PullhookComponent,
 ];
 
 @NgModule({

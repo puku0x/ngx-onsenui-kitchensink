@@ -14,7 +14,6 @@ export class AnimationsComponent implements OnInit {
   constructor(private navi: OnsNavigator) { }
 
   transition(animation) {
-
     this.navi.nativeElement.pushPage(TransitionComponent, { animation, data: animation });
   }
 

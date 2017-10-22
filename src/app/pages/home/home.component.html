@@ -1,7 +1,7 @@
 <p class="intro">
   This is a kitchen sink example that shows off the Angular bindings for Onsen UI.<br><br>
 </p>
-<ons-card *ngFor="let page of pages" (click)="push()">
+<ons-card *ngFor="let page of pages" (click)="push(page)">
   <div class="title">{{ page.label }}</div>
   <div class="content">{{ page.desc }}</div>
 </ons-card>

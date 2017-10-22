@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { OnsNavigator } from 'ngx-onsenui';
+
+import { PullhookComponent } from '../pullhook/pullhook.component';
 
 @Component({
   selector: 'ons-page[app-home]',
@@ -8,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   pages = [
     {
-      // component: PullHook,
+      component: PullhookComponent,
       label: 'Pull Hook',
       desc: 'Simple "pull to refresh" functionality to update data.'
     },
@@ -39,10 +42,10 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private navi: OnsNavigator) { }
 
-  push() {
-
+  push(page) {
+    this.navi.nativeElement.pushPage(page.component);
   }
 
   ngOnInit() {
