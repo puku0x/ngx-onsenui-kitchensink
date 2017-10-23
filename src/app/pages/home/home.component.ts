@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { OnsNavigator } from 'ngx-onsenui';
 
 import { PullhookComponent } from '../pullhook/pullhook.component';
@@ -13,7 +13,7 @@ import { ProgressComponent } from '../progress/progress.component';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   /**
    * Pages
    */
@@ -62,12 +62,6 @@ export class HomeComponent implements OnInit {
    */
   push(page) {
     this.navi.nativeElement.pushPage(page.component);
-  }
-
-  /**
-   * Initialize
-   */
-  ngOnInit() {
   }
 
 }

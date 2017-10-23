@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import * as ons from 'onsenui';
 
 @Component({
@@ -6,17 +6,12 @@ import * as ons from 'onsenui';
   templateUrl: './buttons.component.html',
   styleUrls: ['./buttons.component.scss']
 })
-export class ButtonsComponent implements OnInit {
+export class ButtonsComponent {
   shareItems = [
     { name: 'Twitter', icon: 'md-twitter' },
     { name: 'Facebook', icon: 'md-facebook' },
     { name: 'Google+', icon: 'md-google-plus' },
   ];
-
-  /**
-   * Android
-   */
-  md = ons.platform.isAndroid();
 
   /**
    * Constructor
@@ -28,12 +23,6 @@ export class ButtonsComponent implements OnInit {
    */
   confirm(name: string) {
     ons.notification.confirm(`Share on ${name}?`);
-  }
-
-  /**
-   * Initialize
-   */
-  ngOnInit() {
   }
 
 }

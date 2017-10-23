@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'ons-page[app-forms]',
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.scss']
 })
-export class FormsComponent implements OnInit {
+export class FormsComponent {
   name = '';
   switchOn =  true;
   items = [
@@ -20,9 +20,9 @@ export class FormsComponent implements OnInit {
   checkedColors = ['Green', 'Blue'];
   volume = 25;
 
+  /**
+   * Constructor
+   */
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

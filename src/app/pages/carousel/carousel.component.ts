@@ -1,12 +1,11 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
-import * as ons from 'onsenui';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'ons-page[app-carousel]',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss']
 })
-export class CarouselComponent implements OnInit {
+export class CarouselComponent {
   carouselIndex = 0;
   items = [
     { name: 'gray',   color: 'gray' },
@@ -14,11 +13,6 @@ export class CarouselComponent implements OnInit {
     { name: 'dark',   color: '#373B44' },
     { name: 'orange', color: '#D38312' }
   ];
-
-  /**
-   * Android
-   */
-  md = ons.platform.isAndroid();
 
   /**
    * Carousel
@@ -45,12 +39,6 @@ export class CarouselComponent implements OnInit {
   setActiveIndex(index) {
     this.carouselIndex = index;
     this.carousel.nativeElement.setActiveIndex(index);
-  }
-
-  /**
-   * Initialize
-   */
-  ngOnInit() {
   }
 
 }
