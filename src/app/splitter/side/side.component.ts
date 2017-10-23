@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import * as ons from 'onsenui';
 
 import { AppService } from '../../core/services/app.service';
@@ -8,10 +8,16 @@ import { AppService } from '../../core/services/app.service';
   templateUrl: './side.component.html',
   styleUrls: ['./side.component.scss']
 })
-export class SideComponent implements OnInit {
+export class SideComponent {
 
+  /**
+   * Android
+   */
   md = ons.platform.isAndroid();
 
+  /**
+   * Links
+   */
   links = [
     {
       title: 'Docs',
@@ -40,6 +46,9 @@ export class SideComponent implements OnInit {
     }
   ];
 
+  /**
+   * Tab links
+   */
   access = [
     {
       title: 'Home',
@@ -55,18 +64,26 @@ export class SideComponent implements OnInit {
     }
   ];
 
+  /**
+   * Constructor
+   * @param appService
+   */
   constructor(private appService: AppService) { }
 
+  /**
+   * Jump to tab
+   * @param index
+   */
   loadView(index) {
     this.appService.setTabIndex(index + 1);
     this.appService.toggleMenu();
   }
 
+  /**
+   * Jump to link
+   * @param url
+   */
   loadLink(url: string) {
     window.open(url, '_blank');
   }
-
-  ngOnInit() {
-  }
-
 }

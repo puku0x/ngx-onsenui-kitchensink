@@ -9,6 +9,9 @@ import { PullhookComponent } from '../pullhook/pullhook.component';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  /**
+   * Pages
+   */
   pages = [
     {
       component: PullhookComponent,
@@ -42,12 +45,23 @@ export class HomeComponent implements OnInit {
     }
   ];
 
+  /**
+   * Constructor
+   * @param navi
+   */
   constructor(private navi: OnsNavigator) { }
 
+  /**
+   * Go to page
+   * @param page
+   */
   push(page) {
     this.navi.nativeElement.pushPage(page.component);
   }
 
+  /**
+   * Initialize
+   */
   ngOnInit() {
   }
 

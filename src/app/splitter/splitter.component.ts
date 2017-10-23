@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
+import { takeUntil } from 'rxjs/operators';
 import * as ons from 'onsenui';
 
 import { AppService } from '../core/services/app.service';
@@ -13,11 +14,19 @@ import { TabbarComponent } from '../tabbar/tabbar.component';
   styleUrls: ['./splitter.component.scss']
 })
 export class SplitterComponent implements OnInit, OnDestroy {
-  md = ons.platform.isAndroid();
+  onDestroy = new Subject();
   menu$: Observable<boolean>;
-  subscrption: Subscription;
   side = SideComponent;
   content = TabbarComponent;
+
+  /**
+   * Android
+   */
+  md = ons.platform.isAndroid();
+
+  /**
+   * Splitter
+   */
   @ViewChild('splitter') splitter;
 
   /**
@@ -30,16 +39,18 @@ export class SplitterComponent implements OnInit, OnDestroy {
    * Initialize
    */
   ngOnInit() {
-    this.subscrption = this.appService.menu$.subscribe(menu => {
-      this.splitter.nativeElement.side.toggle();
-    });
+    this.appService.menu$
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe(menu => {
+        this.splitter.nativeElement.side.toggle();
+      });
   }
 
   /**
    * Finalize
    */
   ngOnDestroy() {
-    this.subscrption.unsubscribe();
+    this.onDestroy.next()
   }
 
 }

@@ -9,8 +9,15 @@ import { Params } from 'ngx-onsenui';
 export class TransitionComponent implements OnInit {
   title: string;
 
+  /**
+   * Constructor
+   * @param params
+   */
   constructor(private params: Params) { }
 
+  /**
+   * Initialize
+   */
   ngOnInit() {
     this.title = this.params.data;
   }

@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core';
-import * as ons from 'onsenui';
 
 import { AppService } from './services/app.service';
 

@@ -1,3 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~onsenui/css/onsenui.css";
 @import "~onsenui/css/onsen-css-components.css";
+
+/**
+ * Tabbar Material fix
+ */
+.tabbar--material__button, :checked + .tabbar--material__button {
+  color: #fff;
+}
+.tabbar--material__border {
+  background-color: #fff;
+}

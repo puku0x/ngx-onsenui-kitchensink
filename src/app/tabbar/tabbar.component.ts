@@ -1,6 +1,8 @@
 import { Component, ElementRef, NgZone, ViewChild, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Subject } from 'rxjs/Subject';
+import { takeUntil } from 'rxjs/operators';
 import * as ons from 'onsenui';
+
 
 import { AppService } from '../core/services/app.service';
 import { CameraComponent } from '../pages/camera/camera.component';
@@ -22,9 +24,14 @@ const purple = [103, 58, 183];
   styleUrls: ['./tabbar.component.scss']
 })
 export class TabbarComponent implements OnInit, OnDestroy {
-  subscrption: Subscription;
-  swipeTheme: string;
+  onDestroy = new Subject();
+
+  /**
+   * Android
+   */
   md = ons.platform.isAndroid();
+
+  swipeTheme: string;
   shutUp = !this.md;
   showingTip = false;
   colors = red;
@@ -63,6 +70,9 @@ export class TabbarComponent implements OnInit, OnDestroy {
   ];
   title = this.md ? 'Onsen UI' : this.tabs[1].label;
 
+  /**
+   * Tabbat
+   */
   @ViewChild('tabbar') tabbar;
 
   /**
@@ -93,7 +103,7 @@ export class TabbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Swipe
+   * Callback for swipe
    * @param index
    * @param options
    */
@@ -111,9 +121,13 @@ export class TabbarComponent implements OnInit, OnDestroy {
    * Initialize
    */
   ngOnInit() {
-    this.subscrption = this.appService.tabIndex$.subscribe(index => {
-      this.tabbar.nativeElement.setActiveTab(index);
-    });
+    this.appService.tabIndex$
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe(index => {
+        this.tabbar.nativeElement.setActiveTab(index);
+      });
+
+    // Android
     if (this.md) {
       this.tabbar.nativeElement.onSwipe = function(index, options) {
         this.onSwipe(index, options);
@@ -125,7 +139,7 @@ export class TabbarComponent implements OnInit, OnDestroy {
    * Finalize
    */
   ngOnDestroy() {
-    this.subscrption.unsubscribe();
+    this.onDestroy.next();
   }
 
 }
