@@ -7,6 +7,24 @@ import * as ons from 'onsenui';
   styleUrls: ['./dialogs.component.scss']
 })
 export class DialogsComponent implements OnInit {
+  dialogVisible = false;
+  alertDialogVisible = false;
+  toastVisible = false;
+  modalVisible = false;
+  popoverVisible = false;
+  actionSheetVisible = false;
+  timeoutID: any;
+
+  /**
+   * Modal
+   */
+  @ViewChild('modal') modal;
+
+  /**
+   * Onsen UI
+   */
+  $ons = ons;
+
   /**
    * Android
    */
@@ -16,6 +34,15 @@ export class DialogsComponent implements OnInit {
    * Constructor
    */
   constructor() { }
+
+  /**
+   * Show modal
+   */
+  showModal() {
+    this.modal.nativeElement.show();
+    clearTimeout(this.timeoutID);
+    this.timeoutID = setTimeout(() => this.modal.nativeElement.hide(), 2000);
+  }
 
   /**
    * Initialize

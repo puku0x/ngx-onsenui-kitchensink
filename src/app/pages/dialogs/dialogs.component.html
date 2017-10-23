@@ -3,5 +3,114 @@
     <ons-back-button>Home</ons-back-button>
   </div>
   <div class="center">Dialogs</div>
+  <div class="right">
+    <ons-toolbar-button slot="right" id="info-button" (click)="popover.show(menu)" #menu>
+      <ons-icon *ngIf="md; else elseBlock" icon="md-more-vert"></ons-icon>
+      <ng-template #elseBlock>
+        <span>More</span>
+      </ng-template>
+    </ons-toolbar-button>
+  </div>
 </ons-toolbar>
+<div class="content">
+  <ons-fab *ngIf="md" position="bottom right">
+    <ons-icon icon="md-face"></ons-icon>
+  </ons-fab>
 
+  <ons-list-title>Notifications</ons-list-title>
+  <ons-list modifier="inset">
+    <ons-list-item tappable modifier="longdivider" (click)="$ons.notification.alert('Hello, world!')">
+      <div class="center">Alert</div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" (click)="$ons.notification.confirm('Are you ready?')">
+      <div class="center">Simple Confirmation</div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" (click)="$ons.notification.prompt('What is your name?')">
+      <div class="center">Prompt</div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" (click)="$ons.notification.toast('Hi there!', { buttonLabel: 'Dismiss', timeout: 1500 })">
+      <div class="center">Toast</div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" (click)="$ons.openActionSheet({ buttons: ['Label 1', 'Label 2', 'Label 3', 'Cancel'], destructive: 2, cancelable: true })">
+      <div class="center">Action/Bottom Sheet</div>
+    </ons-list-item>
+  </ons-list>
+
+  <ons-list-title>Components</ons-list-title>
+  <ons-list modifier="inset">
+    <ons-list-item tappable modifier="longdivider" (click)="dialog.show()">
+      <div class="center">Simple Dialog</div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" (click)="alertDialog.show()">
+      <div class="center">Alert Dialog</div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" (click)="toast.show()">
+      <div class="center">Toast (top)</div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" (click)="showModal()">
+      <div class="center">Modal</div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" (click)="popover.show(menu)">
+      <div class="center">Popover - MD Menu</div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" (click)="actionSheet.show()">
+      <div class="center">Action/Bottom Sheet</div>
+    </ons-list-item>
+  </ons-list>
+</div>
+
+<ons-dialog cancelable class="lorem-dialog" #dialog>
+  <!-- Optional page. This could contain a Navigator as well. -->
+  <ons-page>
+    <ons-toolbar>
+      <div class="center">Simple Dialog</div>
+    </ons-toolbar>
+    <p style="text-align: center">Lorem ipsum dolor</p>
+    <p style="text-align: center">
+      <ons-button modifier="light" (click)="dialog.hide()">Close</ons-button>
+    </p>
+  </ons-page>
+</ons-dialog>
+
+<ons-alert-dialog cancelable [attr.modifier]="md ? '' : 'rowfooter'" #alertDialog>
+  <div class="alert-dialog-title">Hey!!!</div>
+  <div class="alert-dialog-content">
+    Lorem ipsum
+    <ons-icon icon="fa-commenting-o"></ons-icon>
+  </div>
+  <div class="alert-dialog-footer">
+    <ons-alert-dialog-button (click)="alertDialog.hide()">Wat</ons-alert-dialog-button>
+    <ons-alert-dialog-button (click)="alertDialog.hide()">Hmm</ons-alert-dialog-button>
+    <ons-alert-dialog-button (click)="alertDialog.hide()">Sure</ons-alert-dialog-button>
+  </div>
+</ons-alert-dialog>
+
+<ons-toast animation="fall" #toast>
+  Supercalifragilisticexpialidocious
+  <button (click)="toast.hide()">No way</button>
+</ons-toast>
+
+<ons-modal #modal (click)="modal.hide()">
+  <p style="text-align: center">
+    Loading
+    <ons-icon icon="fa-spinner" spin></ons-icon>
+    <br>
+    <br> Click or wait
+  </p>
+</ons-modal>
+
+<ons-popover cancelable direction="down" cover-target #popover>
+  <ons-list>
+    <ons-list-item tappable *ngFor="let label of ['Call history', 'Import/export', 'New contact', 'Settings']" (click)="popover.hide()"
+      [attr.modifier]="md ? 'nodivider' : 'longdivider'">
+      <div class="center">{{ label }}</div>
+    </ons-list-item>
+  </ons-list>
+</ons-popover>
+
+<ons-action-sheet cancelable #actionSheet>
+  <ons-action-sheet-button (click)="actionSheet.hide()" icon="md-square-o">Action 1</ons-action-sheet-button>
+  <ons-action-sheet-button (click)="actionSheet.hide()" icon="md-square-o">Action 2</ons-action-sheet-button>
+  <ons-action-sheet-button (click)="actionSheet.hide()" modifier="destructive" icon="md-square-o">Action 3</ons-action-sheet-button>
+  <ons-action-sheet-button (click)="actionSheet.hide()" icon="md-square-o">Cancel</ons-action-sheet-button>
+</ons-action-sheet>
