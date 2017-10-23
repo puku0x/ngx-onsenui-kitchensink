@@ -26,6 +26,9 @@ script:
 
 before_deploy:
   - ng build --prod --aot --build-optimizer --base-href="https://puku0x.github.io/ngx-onsenui-kitchensink/"
+  - mv dist/index.html dist/main.html
+  - cp -r static/demo dist/demo
+  - mv dist/demo/demo.html dist/index.html
 
 deploy:
   provider: pages
