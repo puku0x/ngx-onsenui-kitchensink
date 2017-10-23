@@ -1,0 +1,23 @@
+.carousel-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.color-tag {
+  color: #fff;
+  font-size: 48px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.dots {
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+}
+.dots > span {
+  cursor: pointer;
+}

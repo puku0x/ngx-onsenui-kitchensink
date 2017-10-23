@@ -5,3 +5,14 @@
   <div class="center">Carousel</div>
 </ons-toolbar>
 
+<ons-carousel fullscreen swipeable auto-scroll overscrollable (postchange)="onPostchange($event)" #carousel>
+  <ons-carousel-item *ngFor="let item of items" class="carousel-item" [style.backgroundColor]="item.color">
+    <div class="color-tag">{{item.name}}</div>
+  </ons-carousel-item>
+</ons-carousel>
+
+<div class="dots">
+  <span *ngFor="let item of items; index as i" (click)="setActiveIndex(i)">
+    {{ carouselIndex === i ? '\u25CF' : '\u25CB' }}
+  </span>
+</div>
