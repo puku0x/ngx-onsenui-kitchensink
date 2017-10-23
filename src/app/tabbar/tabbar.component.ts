@@ -1,8 +1,7 @@
-import { Component, ElementRef, NgZone, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, NgZone, ViewChild, ViewEncapsulation, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { takeUntil } from 'rxjs/operators';
 import * as ons from 'onsenui';
-
 
 import { AppService } from '../core/services/app.service';
 import { CameraComponent } from '../pages/camera/camera.component';
@@ -21,7 +20,8 @@ const purple = [103, 58, 183];
 @Component({
   selector: 'ons-page[app-tabbar]',
   templateUrl: './tabbar.component.html',
-  styleUrls: ['./tabbar.component.scss']
+  styleUrls: ['./tabbar.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TabbarComponent implements OnInit, OnDestroy {
   onDestroy = new Subject();
