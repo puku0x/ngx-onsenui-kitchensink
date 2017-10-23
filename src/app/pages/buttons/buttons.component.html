@@ -1,0 +1,57 @@
+<ons-toolbar>
+  <div class="left">
+    <ons-back-button>Home</ons-back-button>
+  </div>
+  <div class="center">Buttons</div>
+</ons-toolbar>
+
+<section style="margin: 16px">
+  <ons-segment style="width: 260px">
+    <button>First</button>
+    <button>Second</button>
+    <button>Third</button>
+  </ons-segment>
+
+  <br><br>
+
+  <ons-button class="button-margin">Normal</ons-button>
+  <ons-button modifier="quiet" class="button-margin">Quiet</ons-button>
+  <ons-button modifier="outline" class="button-margin">Outline</ons-button>
+  <ons-button modifier="cta" class="button-margin">Call to action</ons-button>
+  <ons-button modifier="light" class="button-margin">Light</ons-button>
+  <ons-button modifier="large" class="button-margin">Large</ons-button>
+</section>
+
+<section style="margin: 16px">
+  <ons-segment disabled style="width: 260px">
+    <button>First</button>
+    <button>Second</button>
+    <button>Third</button>
+  </ons-segment>
+
+  <br><br>
+
+  <ons-button class="button-margin" disabled>Normal</ons-button>
+  <ons-button modifier="quiet" class="button-margin" disabled>Quiet</ons-button>
+  <ons-button modifier="outline" class="button-margin" disabled>Outline</ons-button>
+  <ons-button modifier="cta" class="button-margin" disabled>Call to action</ons-button>
+  <ons-button modifier="light" class="button-margin" disabled>Light</ons-button>
+  <ons-button modifier="large" class="button-margin" disabled>Large</ons-button>
+</section>
+
+<ons-fab position="top right">
+  <ons-icon icon="md-face"></ons-icon>
+</ons-fab>
+
+<ons-fab position="bottom left">
+  <ons-icon icon="md-car"></ons-icon>
+</ons-fab>
+
+<ons-speed-dial position="bottom right" direction="up">
+  <ons-fab>
+    <ons-icon icon="md-share"></ons-icon>
+  </ons-fab>
+  <ons-speed-dial-item *ngFor="let item of shareItems" (click)="confirm(item.name)">
+    <ons-icon [attr.icon]="item.icon"></ons-icon>
+  </ons-speed-dial-item>
+</ons-speed-dial>

@@ -15,7 +15,15 @@ import { AnimationsComponent } from './pages/animations/animations.component';
 import { CameraComponent } from './pages/camera/camera.component';
 import { TransitionComponent } from './pages/transition/transition.component';
 import { PullhookComponent } from './pages/pullhook/pullhook.component';
+import { DialogsComponent } from './pages/dialogs/dialogs.component';
+import { ButtonsComponent } from './pages/buttons/buttons.component';
+import { CarouselComponent } from './pages/carousel/carousel.component';
+import { InfiniteScrollComponent } from './pages/infinite-scroll/infinite-scroll.component';
+import { ProgressComponent } from './pages/progress/progress.component';
 
+/**
+ * Pages
+ */
 const pages = [
   SplitterComponent,
   SideComponent,
@@ -26,6 +34,11 @@ const pages = [
   AnimationsComponent,
   TransitionComponent,
   PullhookComponent,
+  DialogsComponent,
+  ButtonsComponent,
+  CarouselComponent,
+  InfiniteScrollComponent,
+  ProgressComponent
 ];
 
 @NgModule({

@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { OnsNavigator } from 'ngx-onsenui';
 
 import { PullhookComponent } from '../pullhook/pullhook.component';
+import { DialogsComponent } from '../dialogs/dialogs.component';
+import { ButtonsComponent } from '../buttons/buttons.component';
+import { CarouselComponent } from '../carousel/carousel.component';
+import { InfiniteScrollComponent } from '../infinite-scroll/infinite-scroll.component';
+import { ProgressComponent } from '../progress/progress.component';
 
 @Component({
   selector: 'ons-page[app-home]',
@@ -19,27 +24,27 @@ export class HomeComponent implements OnInit {
       desc: 'Simple "pull to refresh" functionality to update data.'
     },
     {
-      // component: Dialogs,
+      component: DialogsComponent,
       label: 'Dialogs',
       desc: 'Components and utility methods to display many types of dialogs.'
     },
     {
-      // component: Buttons,
+      component: ButtonsComponent,
       label: 'Buttons',
       desc: 'Different styles for buttons, floating action buttons and speed dials.'
     },
     {
-      // component: Carousel,
+      component: CarouselComponent,
       label: 'Carousel',
       desc: 'Customizable carousel that can be optionally fullscreen.'
     },
     {
-      // component: InfiniteScroll,
+      component: InfiniteScrollComponent,
       label: 'Infinite Scroll',
       desc: 'Two types of infinite lists: "Load More" and "Lazy Repeat".'
     },
     {
-      // component: Progress,
+      component: ProgressComponent,
       label: 'Progress',
       desc: 'Linear progress, circular progress and spinners.'
     }
