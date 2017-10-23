@@ -1,0 +1,12 @@
+<p class="intro">
+  Useful for loading more items when the scroll reaches the bottom of the page, typically after an asynchronous API call.<br><br>
+</p>
+<ons-list>
+  <ons-list-item *ngFor="let item of list">
+    Item #{{ item }}
+  </ons-list-item>
+</ons-list>
+
+<div class="after-list">
+  <ons-icon icon="fa-spinner" size="26px" spin></ons-icon>
+</div>

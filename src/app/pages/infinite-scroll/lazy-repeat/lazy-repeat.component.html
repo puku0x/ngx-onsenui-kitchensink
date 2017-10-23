@@ -1,0 +1,9 @@
+<p class="intro">
+  Automatically unloads items that are not visible and loads new ones. Useful when the list contains thousands of items.<br><br>
+</p>
+
+<ons-list>
+  <ons-list-item *onsLazyRepeat="let item of list; index as i">
+    Item #{{ item }}
+  </ons-list-item>
+</ons-list>

@@ -2,6 +2,16 @@
   <div class="left">
     <ons-back-button>Home</ons-back-button>
   </div>
-  <div class="center">Infinite Scroll</div>
+  <div class="center">
+    <ons-segment *ngIf="!md; else elseBlock" tabbar-id="infinite-scroll-tabbar" style="width: 200px">
+      <button>Load More</button>
+      <button>Lazy Repeat</button>
+    </ons-segment>
+    <ng-template #elseBlock>Infinite Scroll</ng-template>
+  </div>
 </ons-toolbar>
 
+<ons-tabbar id="infinite-scroll-tabbar" position="auto">
+  <ons-tab [page]="tab1" label="Load More" active></ons-tab>
+  <ons-tab [page]="tab2" label="Lazy Repeat"></ons-tab>
+</ons-tabbar>

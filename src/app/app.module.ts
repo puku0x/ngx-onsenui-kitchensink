@@ -19,6 +19,8 @@ import { DialogsComponent } from './pages/dialogs/dialogs.component';
 import { ButtonsComponent } from './pages/buttons/buttons.component';
 import { CarouselComponent } from './pages/carousel/carousel.component';
 import { InfiniteScrollComponent } from './pages/infinite-scroll/infinite-scroll.component';
+import { LoadMoreComponent } from './pages/infinite-scroll/load-more/load-more.component';
+import { LazyRepeatComponent } from './pages/infinite-scroll/lazy-repeat/lazy-repeat.component';
 import { ProgressComponent } from './pages/progress/progress.component';
 
 /**
@@ -38,6 +40,8 @@ const pages = [
   ButtonsComponent,
   CarouselComponent,
   InfiniteScrollComponent,
+  LoadMoreComponent,
+  LazyRepeatComponent,
   ProgressComponent
 ];
 
