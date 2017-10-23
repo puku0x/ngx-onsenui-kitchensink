@@ -2,6 +2,22 @@
 @import "~onsenui/css/onsenui.css";
 @import "~onsenui/css/onsen-css-components.css";
 
+.page--material .toolbar--white-content__center,
+.page--material .toolbar-button--white-content,
+.page--material :checked + .tabbar--white-content__button {
+  color: white;
+}
+.page--material .tabbar--white-content__button {
+  color: rgba(255, 255, 255, 0.7);
+}
+.page--material .tabbar--white-content__border {
+  background-color: white;
+}
+
+.page--material__background.page--white__background {
+  background-color: #fff;
+}
+
 .lorem-dialog .dialog-container {
   height: 200px;
 }

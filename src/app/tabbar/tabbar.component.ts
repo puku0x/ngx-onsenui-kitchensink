@@ -1,4 +1,4 @@
-import { Component, ElementRef, NgZone, ViewChild, ViewEncapsulation, OnInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, NgZone, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { takeUntil } from 'rxjs/operators';
 import * as ons from 'onsenui';
@@ -20,8 +20,7 @@ const purple = [103, 58, 183];
 @Component({
   selector: 'ons-page[app-tabbar]',
   templateUrl: './tabbar.component.html',
-  styleUrls: ['./tabbar.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./tabbar.component.scss']
 })
 export class TabbarComponent implements OnInit, OnDestroy {
   onDestroy = new Subject();
@@ -115,6 +114,20 @@ export class TabbarComponent implements OnInit, OnDestroy {
       this.topPosition = lerp(this.tabs[a].top || 0, this.tabs[b].top || 0, ratio);
       this.element.nativeElement.style = this.md ? `top: ${this.topPosition}px` : '';
     });
+  }
+
+  showTip(e, message) {
+    if (!this.shutUp && !(e && e.swipe) && !this.showingTip) {
+      this.showingTip = true;
+      ons.notification.toast({
+        message,
+        buttonLabel: 'Shut up!',
+        timeout: 2000
+      }).then(i => {
+        this.shutUp = i === 0;
+        this.showingTip = false;
+      });
+    }
   }
 
   /**

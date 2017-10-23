@@ -13,10 +13,6 @@
   </div>
 </ons-toolbar>
 <div class="content">
-  <ons-fab *ngIf="md" position="bottom right">
-    <ons-icon icon="md-face"></ons-icon>
-  </ons-fab>
-
   <ons-list-title>Notifications</ons-list-title>
   <ons-list modifier="inset">
     <ons-list-item tappable modifier="longdivider" (click)="$ons.notification.alert('Hello, world!')">
@@ -58,6 +54,10 @@
     </ons-list-item>
   </ons-list>
 </div>
+
+<ons-fab *ngIf="md" position="bottom right">
+  <ons-icon icon="md-face"></ons-icon>
+</ons-fab>
 
 <ons-dialog cancelable class="lorem-dialog" #dialog>
   <!-- Optional page. This could contain a Navigator as well. -->

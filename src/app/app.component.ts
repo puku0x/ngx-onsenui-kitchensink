@@ -12,11 +12,17 @@ export class AppComponent {
   root = SplitterComponent;
   shutUp = ons.platform.isAndroid();
 
+  /**
+   * Callback for postpush
+   * @param event
+   */
   onPostpush(event) {
-    !this.shutUp && ons.notification.toast({
-      message: 'Try swipe-to-pop from left side!',
-      buttonLabel: 'Shut up!',
-      timeout: 2000
-    }).then(i => this.shutUp = i === 0);
+    if (!this.shutUp) {
+      ons.notification.toast({
+        message: 'Try swipe-to-pop from left side!',
+        buttonLabel: 'Shut up!',
+        timeout: 2000
+      }).then(i => this.shutUp = i === 0);
+    }
   }
 }
