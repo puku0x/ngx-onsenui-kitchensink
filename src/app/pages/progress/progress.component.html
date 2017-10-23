@@ -5,3 +5,57 @@
   <div class="center">Progress</div>
 </ons-toolbar>
 
+<ons-progress-bar [value]="progress"></ons-progress-bar>
+
+<section style="margin: 40px 16px">
+  <p>
+    Progress: {{ progress }}%
+  </p>
+
+  <p>
+    <ons-progress-bar value="20"></ons-progress-bar>
+  </p>
+
+  <p>
+    <ons-progress-bar value="40" secondary-value="80"></ons-progress-bar>
+  </p>
+
+  <p>
+    <ons-progress-bar indeterminate></ons-progress-bar>
+  </p>
+
+  <div style="text-align: center; margin: 40px; color: #666">
+    <p>
+      <ons-progress-circular value="20"></ons-progress-circular>
+      <ons-progress-circular value="40" secondary-value="80"></ons-progress-circular>
+      <ons-progress-circular indeterminate></ons-progress-circular>
+    </p>
+
+    <p>
+      <ons-icon icon="ion-load-a" spin size="30px"></ons-icon>
+      <ons-icon icon="ion-load-b" spin size="30px"></ons-icon>
+      <ons-icon icon="ion-load-c" spin size="30px"></ons-icon>
+      <ons-icon icon="ion-load-d" spin size="30px"></ons-icon>
+    </p>
+
+    <p>
+      <ons-icon icon="fa-spinner" spin size="26px"></ons-icon>
+      <ons-icon icon="circle-o-notch" spin size="26px"></ons-icon>
+    </p>
+
+    <p>
+      <ons-icon icon="md-spinner" spin size="30px"></ons-icon>
+    </p>
+  </div>
+
+  <p>
+    <ons-button modifier="large">
+      <ons-icon icon="ion-load-c" spin size="26px"></ons-icon>
+    </ons-button>
+    <br>
+    <br>
+    <ons-button modifier="large" disabled>
+      <ons-icon icon="ion-load-c" spin size="26px"></ons-icon>
+    </ons-button>
+  </p>
+</section>

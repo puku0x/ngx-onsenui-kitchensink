@@ -1,5 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
-import * as ons from 'onsenui';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ons-page[app-progress]',
@@ -7,10 +6,8 @@ import * as ons from 'onsenui';
   styleUrls: ['./progress.component.scss']
 })
 export class ProgressComponent implements OnInit {
-  /**
-   * Android
-   */
-  md = ons.platform.isAndroid();
+  progress = 0;
+  intervalID: any;
 
   /**
    * Constructor
@@ -21,6 +18,13 @@ export class ProgressComponent implements OnInit {
    * Initialize
    */
   ngOnInit() {
+    this.intervalID = setInterval(() => {
+      if (this.progress === 100) {
+        clearInterval(this.intervalID);
+        return;
+      }
+      this.progress++;
+    }, 40);
   }
 
 }
