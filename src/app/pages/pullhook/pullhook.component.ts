@@ -99,12 +99,12 @@ export class PullhookComponent implements OnInit {
     this.kittens = this.getRandomData();
 
     if (this.md) {
-      this.pullhook.nativeElement.onPull = function(ratio, options) {
+      this.pullhook.nativeElement.onPull = (ratio, options) => {
         if (ratio > 1.0) {
           ratio = 1.0;
         }
-        this.onPull(ratio, options);
-      }.bind(this);
+        this.onPull(ratio);
+      };
     }
   }
 

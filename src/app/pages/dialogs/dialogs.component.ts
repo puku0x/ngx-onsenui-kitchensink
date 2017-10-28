@@ -36,6 +36,12 @@ export class DialogsComponent implements OnInit {
   constructor() { }
 
   /**
+   * Initialize
+   */
+  ngOnInit() {
+  }
+
+  /**
    * Show modal
    */
   showModal() {
@@ -43,11 +49,4 @@ export class DialogsComponent implements OnInit {
     clearTimeout(this.timeoutID);
     this.timeoutID = setTimeout(() => this.modal.nativeElement.hide(), 2000);
   }
-
-  /**
-   * Initialize
-   */
-  ngOnInit() {
-  }
-
 }

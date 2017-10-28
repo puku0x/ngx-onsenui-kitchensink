@@ -19,6 +19,19 @@ export class LoadMoreComponent implements OnInit {
    */
   constructor(private element: ElementRef) { }
 
+  /**
+   * Initialize
+   */
+  ngOnInit() {
+    for (let i = 0; i < 30; i++) {
+      this.list.push(i);
+    }
+
+    // Infinite scroll
+    this.element.nativeElement.onInfiniteScroll = (done) => {
+      this.loadMore(done);
+    };
+  }
 
   /**
    * Callback for infinite scroll
@@ -33,17 +46,4 @@ export class LoadMoreComponent implements OnInit {
     }, 600);
   }
 
-  /**
-   * Initialize
-   */
-  ngOnInit() {
-    for (let i = 0; i < 30; i++) {
-      this.list.push(i);
-    }
-
-    // Infinite scroll
-    this.element.nativeElement.onInfiniteScroll = (done) => {
-      this.loadMore(done);
-    };
-  }
 }

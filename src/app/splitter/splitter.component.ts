@@ -50,7 +50,7 @@ export class SplitterComponent implements OnInit, OnDestroy {
    * Finalize
    */
   ngOnDestroy() {
-    this.onDestroy.next()
+    this.onDestroy.next();
   }
 
 }

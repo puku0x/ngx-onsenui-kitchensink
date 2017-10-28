@@ -84,6 +84,31 @@ export class TabbarComponent implements OnInit, OnDestroy {
   ) { }
 
   /**
+   * Initialize
+   */
+  ngOnInit() {
+    this.appService.tabIndex$
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe(index => {
+        this.tabbar.nativeElement.setActiveTab(index);
+      });
+
+    // Android
+    if (this.md) {
+      this.tabbar.nativeElement.onSwipe = (index, options) => {
+        this.onSwipe(index, options);
+      };
+    }
+  }
+
+  /**
+   * Finalize
+   */
+  ngOnDestroy() {
+    this.onDestroy.next();
+  }
+
+    /**
    * Toggle menu
    */
   toggleMenu() {
@@ -116,6 +141,11 @@ export class TabbarComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Show toast
+   * @param e
+   * @param message
+   */
   showTip(e, message) {
     if (!this.shutUp && !(e && e.swipe) && !this.showingTip) {
       this.showingTip = true;
@@ -128,31 +158,6 @@ export class TabbarComponent implements OnInit, OnDestroy {
         this.showingTip = false;
       });
     }
-  }
-
-  /**
-   * Initialize
-   */
-  ngOnInit() {
-    this.appService.tabIndex$
-      .pipe(takeUntil(this.onDestroy))
-      .subscribe(index => {
-        this.tabbar.nativeElement.setActiveTab(index);
-      });
-
-    // Android
-    if (this.md) {
-      this.tabbar.nativeElement.onSwipe = function(index, options) {
-        this.onSwipe(index, options);
-      }.bind(this);
-    }
-  }
-
-  /**
-   * Finalize
-   */
-  ngOnDestroy() {
-    this.onDestroy.next();
   }
 
 }
