@@ -7,7 +7,6 @@
   </div>
 </ons-toolbar>
 <ons-tabbar position="auto" modifier="autogrow white-content" (prechange)="onPrechange($event)" swipeable #tabbar>
-  <div class="tabbar__content"></div>
   <div class="tabbar" [style.background-color]="swipeTheme">
     <ons-tab icon="ion-camera" style="max-width: 50px; top: -5px;" [page]="tabs[0].page"></ons-tab>
     <ons-tab [attr.label]="tabs[1].label" [attr.icon]="tabs[1].icon" [page]="tabs[1].page" active></ons-tab>

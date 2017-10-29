@@ -108,7 +108,7 @@ export class TabbarComponent implements OnInit, OnDestroy {
     this.onDestroy.next();
   }
 
-    /**
+  /**
    * Toggle menu
    */
   toggleMenu() {
