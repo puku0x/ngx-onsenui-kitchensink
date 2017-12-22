@@ -22,7 +22,7 @@ before_install:
   - npm install -g @angular/cli
 
 script:
-  - ng test --single-run
+  - ng test --single-run --browser=ChromeHeadless
 
 before_deploy:
   - ng build --prod --base-href="https://puku0x.github.io/ngx-onsenui-kitchensink/"
