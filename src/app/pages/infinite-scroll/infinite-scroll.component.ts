@@ -1,5 +1,5 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
-import * as ons from 'onsenui';
+import { Component, ViewChild } from '@angular/core';
+import { onsPlatform } from 'ngx-onsenui';
 
 import { LoadMoreComponent } from './load-more/load-more.component';
 import { LazyRepeatComponent } from './lazy-repeat/lazy-repeat.component';
@@ -9,24 +9,18 @@ import { LazyRepeatComponent } from './lazy-repeat/lazy-repeat.component';
   templateUrl: './infinite-scroll.component.html',
   styleUrls: ['./infinite-scroll.component.scss']
 })
-export class InfiniteScrollComponent implements OnInit {
+export class InfiniteScrollComponent {
   tab1 = LoadMoreComponent;
   tab2 = LazyRepeatComponent;
 
   /**
    * Android
    */
-  md = ons.platform.isAndroid();
+  md = onsPlatform.isAndroid();
 
   /**
    * Constructor
    */
   constructor() { }
-
-  /**
-   * Initialize
-   */
-  ngOnInit() {
-  }
 
 }

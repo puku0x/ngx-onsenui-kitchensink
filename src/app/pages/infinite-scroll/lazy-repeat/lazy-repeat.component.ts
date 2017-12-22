@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as ons from 'onsenui';
+import { onsPlatform } from 'ngx-onsenui';
 
 @Component({
   selector: 'ons-page[app-lazy-repeat]',
@@ -12,7 +12,7 @@ export class LazyRepeatComponent implements OnInit {
   /**
    * Android
    */
-  md = ons.platform.isAndroid();
+  md = onsPlatform.isAndroid();
 
   /**
    * Constructor

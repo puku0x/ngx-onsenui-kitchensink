@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import * as ons from 'onsenui';
+import { onsPlatform } from 'ngx-onsenui';
 
 import { AppService } from '../../core/services/app.service';
 
@@ -13,7 +13,7 @@ export class SideComponent {
   /**
    * Android
    */
-  md = ons.platform.isAndroid();
+  md = onsPlatform.isAndroid();
 
   /**
    * Links

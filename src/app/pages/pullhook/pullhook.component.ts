@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import * as ons from 'onsenui';
+import { onsPlatform } from 'ngx-onsenui';
 
 @Component({
   selector: 'ons-page[app-pullhook]',
@@ -15,7 +15,7 @@ export class PullhookComponent implements OnInit {
   /**
    * Android
    */
-  md = ons.platform.isAndroid();
+  md = onsPlatform.isAndroid();
 
   /**
    * Pullhook

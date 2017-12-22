@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import * as ons from 'onsenui';
+import { Component, OnInit } from '@angular/core';
+import { onsPlatform, onsNotification } from 'ngx-onsenui';
 
 import { SplitterComponent } from './splitter/splitter.component';
 
@@ -8,9 +8,17 @@ import { SplitterComponent } from './splitter/splitter.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   root = SplitterComponent;
-  shutUp = ons.platform.isAndroid();
+  shutUp = onsPlatform.isAndroid();
+
+  ngOnInit() {
+    const html = document.documentElement;
+    if (onsPlatform.isIPhoneX()) {
+      html.setAttribute('onsflag-iphonex-portrait', '');
+      html.setAttribute('onsflag-iphonex-landscape', '');
+    }
+  }
 
   /**
    * Callback for postpush
@@ -18,7 +26,7 @@ export class AppComponent {
    */
   onPostpush(event) {
     if (!this.shutUp) {
-      ons.notification.toast({
+      onsNotification.toast({
         message: 'Try swipe-to-pop from left side!',
         buttonLabel: 'Shut up!',
         timeout: 2000

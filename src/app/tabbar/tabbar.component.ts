@@ -1,7 +1,7 @@
 import { Component, ElementRef, NgZone, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { takeUntil } from 'rxjs/operators';
-import * as ons from 'onsenui';
+import { onsPlatform, onsNotification } from 'ngx-onsenui';
 
 import { AppService } from '../core/services/app.service';
 import { CameraComponent } from '../pages/camera/camera.component';
@@ -28,7 +28,7 @@ export class TabbarComponent implements OnInit, OnDestroy {
   /**
    * Android
    */
-  md = ons.platform.isAndroid();
+  md = onsPlatform.isAndroid();
 
   swipeTheme: string;
   shutUp = !this.md;
@@ -149,7 +149,7 @@ export class TabbarComponent implements OnInit, OnDestroy {
   showTip(e, message) {
     if (!this.shutUp && !(e && e.swipe) && !this.showingTip) {
       this.showingTip = true;
-      ons.notification.toast({
+      onsNotification.toast({
         message,
         buttonLabel: 'Shut up!',
         timeout: 2000

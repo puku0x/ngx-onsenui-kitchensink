@@ -2,7 +2,7 @@ import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { takeUntil } from 'rxjs/operators';
-import * as ons from 'onsenui';
+import { onsPlatform } from 'ngx-onsenui';
 
 import { AppService } from '../core/services/app.service';
 import { SideComponent } from './side/side.component';
@@ -22,7 +22,7 @@ export class SplitterComponent implements OnInit, OnDestroy {
   /**
    * Android
    */
-  md = ons.platform.isAndroid();
+  md = onsPlatform.isAndroid();
 
   /**
    * Splitter

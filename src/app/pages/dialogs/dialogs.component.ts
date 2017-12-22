@@ -1,4 +1,5 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { onsPlatform } from 'ngx-onsenui';
 import * as ons from 'onsenui';
 
 @Component({
@@ -6,7 +7,7 @@ import * as ons from 'onsenui';
   templateUrl: './dialogs.component.html',
   styleUrls: ['./dialogs.component.scss']
 })
-export class DialogsComponent implements OnInit {
+export class DialogsComponent {
   dialogVisible = false;
   alertDialogVisible = false;
   toastVisible = false;
@@ -28,18 +29,12 @@ export class DialogsComponent implements OnInit {
   /**
    * Android
    */
-  md = ons.platform.isAndroid();
+  md = onsPlatform.isAndroid();
 
   /**
    * Constructor
    */
   constructor() { }
-
-  /**
-   * Initialize
-   */
-  ngOnInit() {
-  }
 
   /**
    * Show modal

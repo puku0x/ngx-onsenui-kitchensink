@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import * as ons from 'onsenui';
+import { onsNotification } from 'ngx-onsenui';
 
 @Component({
   selector: 'ons-page[app-buttons]',
@@ -22,7 +22,7 @@ export class ButtonsComponent {
    * Confirm dialog
    */
   confirm(name: string) {
-    ons.notification.confirm(`Share on ${name}?`);
+    onsNotification.confirm(`Share on ${name}?`);
   }
 
 }
