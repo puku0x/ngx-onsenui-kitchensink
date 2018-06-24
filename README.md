@@ -1,3 +1,7 @@
+[![Build Status][travis-ci-image]][travis-ci-url]
+[![Dependency status][david-dm-image]][david-dm-url]
+[![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
+
 # ngx-onsenui-kitchensink
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
@@ -25,3 +29,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+[travis-ci-url]: http://travis-ci.org/puku0x/ngx-onsenui-kitchensink
+[travis-ci-image]: https://travis-ci.org/puku0x/ngx-onsenui-kitchensink.svg?branch=master
+[david-dm-url]:https://david-dm.org/puku0x/ngx-onsenui-kitchensink
+[david-dm-image]:https://david-dm.org/puku0x/ngx-onsenui-kitchensink.svg
+[david-dm-dev-url]:https://david-dm.org/puku0x/ngx-onsenui-kitchensink?type=dev
+[david-dm-dev-image]:https://david-dm.org/puku0x/ngx-onsenui-kitchensink/dev-status.svg
