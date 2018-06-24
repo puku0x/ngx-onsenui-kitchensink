@@ -1,10 +1,9 @@
 import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
+import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { onsPlatform } from 'ngx-onsenui';
 
-import { AppService } from '../core/services/app.service';
+import { AppService } from '../services/app.service';
 import { SideComponent } from './side/side.component';
 import { TabbarComponent } from '../tabbar/tabbar.component';
 

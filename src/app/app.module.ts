@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OnsenModule } from 'ngx-onsenui';
 
-import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { SplitterComponent } from './splitter/splitter.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -55,8 +54,7 @@ const pages = [
     BrowserModule,
     CommonModule,
     FormsModule,
-    OnsenModule,
-    CoreModule.forRoot(),
+    OnsenModule
   ],
   providers: [],
   bootstrap: [AppComponent],

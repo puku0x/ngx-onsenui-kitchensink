@@ -3,7 +3,7 @@ sudo: false
 language: node_js
 
 node_js:
-  - stable
+  - "8"
 
 dist: trusty
 
@@ -11,29 +11,22 @@ cache:
   directories:
     - node_modules
 
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
-
 before_install:
   - npm install -g @angular/cli
 
 script:
-  - ng test --single-run --browser=ChromeHeadless
+  - npm run test
 
 before_deploy:
   - ng build --prod --base-href="https://puku0x.github.io/ngx-onsenui-kitchensink/"
-  - mv dist/index.html dist/main.html
-  - cp -r static/demo dist
-  - cp static/demo.html dist/index.html
+  - mv dist/ngx-onsenui-kitchensink/index.html dist/ngx-onsenui-kitchensink/main.html
+  - cp -r static/demo dist/ngx-onsenui-kitchensink
+  - cp static/demo.html dist/ngx-onsenui-kitchensink/index.html
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: dist
+  local_dir: dist/ngx-onsenui-kitchensink
   on:
     branch: master

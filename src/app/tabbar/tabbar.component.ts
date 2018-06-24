@@ -1,9 +1,9 @@
 import { Component, ElementRef, NgZone, ViewChild, OnInit, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { onsPlatform, onsNotification } from 'ngx-onsenui';
 
-import { AppService } from '../core/services/app.service';
+import { AppService } from '../services/app.service';
 import { CameraComponent } from '../pages/camera/camera.component';
 import { HomeComponent } from '../pages/home/home.component';
 import { FormsComponent } from '../pages/forms/forms.component';

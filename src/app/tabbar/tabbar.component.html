@@ -6,9 +6,10 @@
     </ons-toolbar-button>
   </div>
 </ons-toolbar>
-<ons-tabbar position="auto" modifier="autogrow white-content" (prechange)="onPrechange($event)" swipeable #tabbar>
+<ons-tabbar position="auto" [attr.modifier]="'autogrow white-content'" (prechange)="onPrechange($event)" swipeable #tabbar>
+  <div class="tabbar__content"></div>
   <div class="tabbar" [style.background-color]="swipeTheme">
-    <ons-tab icon="ion-camera" style="max-width: 50px; top: -5px;" [page]="tabs[0].page"></ons-tab>
+    <ons-tab style="max-width: 50px;" [attr.icon]="tabs[0].icon" [page]="tabs[0].page"></ons-tab>
     <ons-tab [attr.label]="tabs[1].label" [attr.icon]="tabs[1].icon" [page]="tabs[1].page" active></ons-tab>
     <ons-tab [attr.label]="tabs[2].label" [attr.icon]="tabs[2].icon" [page]="tabs[2].page"></ons-tab>
     <ons-tab [attr.label]="tabs[3].label" [attr.icon]="tabs[3].icon" [page]="tabs[3].page"></ons-tab>

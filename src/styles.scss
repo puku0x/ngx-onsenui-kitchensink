@@ -2,6 +2,11 @@
 @import "~onsenui/css/onsenui.css";
 @import "~onsenui/css/onsen-css-components.css";
 
+// FIX
+.toast--material {
+  padding: 16px 24px;
+}
+
 .page--material .toolbar--white-content__center,
 .page--material .toolbar-button--white-content,
 .page--material :checked + .tabbar--white-content__button {

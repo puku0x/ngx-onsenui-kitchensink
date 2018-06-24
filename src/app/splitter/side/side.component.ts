@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { onsPlatform } from 'ngx-onsenui';
 
-import { AppService } from '../../core/services/app.service';
+import { AppService } from '../../services/app.service';
 
 @Component({
   selector: 'ons-page[app-side]',
